@@ -9,6 +9,7 @@ import Login from "./components/login.component";
 import Register from "./components/register.component";
 import Home from "./components/home.component";
 import About from "./components/about.component";
+import Offer from "./components/offer.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
@@ -143,7 +144,7 @@ class App extends Component {
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path={["/about"]} component={About} />
-            <Route exact path={["/offer"]} component={About} />
+            <Route exact path={["/offer"]} component={Offer} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
