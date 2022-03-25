@@ -42,6 +42,7 @@ export default class BoardAdmin extends Component {
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
         </header>
+        <a href="/registerModerator" class="btn btn-primary">rejestruj moderatora</a>
       </div>
     );
   }
