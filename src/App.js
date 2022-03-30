@@ -15,7 +15,7 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import RegisterModerator from "./components/registerModerator.component";
-
+import AddTreatment from "./components/addTreatment.component";
 
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
@@ -28,6 +28,7 @@ class App extends Component {
     this.state = {
       showModeratorBoard: false,
       showAdminBoard: false,
+      showModeratorBoard: false,
       currentUser: undefined,
     };
   }
@@ -40,6 +41,7 @@ class App extends Component {
         currentUser: user,
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
+        showRegisterModerator: user.roles.includes("ROLE_ADMIN"),
       });
     }
     
@@ -57,6 +59,7 @@ class App extends Component {
     this.setState({
       showModeratorBoard: false,
       showAdminBoard: false,
+      showRegisterModerator: false,
       currentUser: undefined,
     });
   }
@@ -154,6 +157,7 @@ class App extends Component {
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
             <Route path="/registerModerator" component={RegisterModerator} />
+            <Route path="/addtreatment" component={AddTreatment} />
 
           </Switch>
         </div>

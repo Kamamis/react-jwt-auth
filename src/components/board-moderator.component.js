@@ -42,6 +42,7 @@ export default class BoardModerator extends Component {
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
         </header>
+        <a href="/addTreatment" class="btn btn-primary">dodaj usługę</a>
       </div>
     );
   }

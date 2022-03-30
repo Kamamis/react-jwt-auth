@@ -11,7 +11,7 @@ import EventBus from "../common/EventBus";
 
 
 
-export default class registerModerator extends Component {
+export default class AddTreatment extends Component {
   constructor(props) {
     super(props);
 
@@ -20,29 +20,7 @@ export default class registerModerator extends Component {
     };
   }
 
-  componentDidMount() {
-    UserService.getRegisterModerator().then(
-      response => {
-        this.setState({
-          content: response.data
-        });
-      },
-      error => {
-        this.setState({
-          content:
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString()
-        });
 
-       if (error.response && error.response.status === 401) {
-         EventBus.dispatch("logout");
-       }
-      }
-    );
-  }
 
   render() {
     return (

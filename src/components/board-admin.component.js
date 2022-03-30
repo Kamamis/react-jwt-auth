@@ -2,6 +2,9 @@ import React, { Component } from "react";
 
 import UserService from "../services/user.service";
 import EventBus from "../common/EventBus";
+import authHeader from "../services/auth-header";
+import userService from "../services/user.service";
+import AuthService from "../services/auth.service";
 
 export default class BoardAdmin extends Component {
   constructor(props) {
@@ -10,9 +13,16 @@ export default class BoardAdmin extends Component {
     this.state = {
       content: ""
     };
+  
+    console.log('cokolwiek u gory');
   }
 
   componentDidMount() {
+    const currentUser = AuthService.getCurrentUser(); 
+
+     if (!currentUser) this.setState({ redirect: "/home" });    /// tu można to zmienić w wolnej chwili
+     this.setState({ currentUser: currentUser, userReady: true }) 
+
     UserService.getAdminBoard().then(
       response => {
         this.setState({
@@ -29,21 +39,58 @@ export default class BoardAdmin extends Component {
             error.toString()
         });
 
-        if (error.response && error.response.status === 401) {
+        if (error.response && error.response.status === 403) {
+          console.log('dupa');
           EventBus.dispatch("logout");
         }
       }
     );
   }
 
-  render() {
+ 
+  // const loggedIn = 
+  //   JSON.parse(localStorage.getItem('user'))
+  //   .user
+  //   .map(user => user.roles)
+  
+  // console.log (loggedIn);
+ dupa (){
+    
+ var userStorage = localStorage.getItem('user');
+ Object.entries(localStorage).map(([key, value]) => {
+   const user = JSON.parse(value);
+   console.log('cokolwiek');
+})}
+ 
+
+render() {
+    
+  if (this.state.redirect) {
     return (
       <div className="container">
         <header className="jumbotron">
-          <h3>{this.state.content}</h3>
+        <h3>{this.state.content}</h3>
         </header>
-        <a href="/registerModerator" class="btn btn-primary">rejestruj moderatora</a>
+        </div>
+    )
+  }
+    const { currentUser } = this.state;
+
+    return (
+      <div className="container">
+        {(this.state.userReady) ?
+        <div>
+        <header className="jumbotron">
+          <h3>
+          <h3>{this.state.content}</h3>
+          </h3>
+        </header>
+      
+        {currentUser.roles == 'ROLE_ADMIN' &&
+      <a href="/registerModerator" class="btn btn-primary">rejestruj moderatora</a>
+    }
+      </div>: null}
       </div>
     );
-  }
+}
 }
