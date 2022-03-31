@@ -41,7 +41,7 @@ class App extends Component {
         currentUser: user,
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
-        showRegisterModerator: user.roles.includes("ROLE_ADMIN"),
+        //showRegisterModerator: user.roles.includes("ROLE_ADMIN"),
       });
     }
     
@@ -59,7 +59,7 @@ class App extends Component {
     this.setState({
       showModeratorBoard: false,
       showAdminBoard: false,
-      showRegisterModerator: false,
+      //showRegisterModerator: false,
       currentUser: undefined,
     });
   }

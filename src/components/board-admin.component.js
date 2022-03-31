@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 import UserService from "../services/user.service";
 import EventBus from "../common/EventBus";
-import authHeader from "../services/auth-header";
-import userService from "../services/user.service";
+// import authHeader from "../services/auth-header";
+// import userService from "../services/user.service";
 import AuthService from "../services/auth.service";
 
 export default class BoardAdmin extends Component {
@@ -14,7 +14,7 @@ export default class BoardAdmin extends Component {
       content: ""
     };
   
-    console.log('cokolwiek u gory');
+    console.log('log z board-admin.component.js');
   }
 
   componentDidMount() {
@@ -54,13 +54,13 @@ export default class BoardAdmin extends Component {
   //   .map(user => user.roles)
   
   // console.log (loggedIn);
- dupa (){
+//  dupa (){
     
- var userStorage = localStorage.getItem('user');
- Object.entries(localStorage).map(([key, value]) => {
-   const user = JSON.parse(value);
-   console.log('cokolwiek');
-})}
+//  var userStorage = localStorage.getItem('user');
+//  Object.entries(localStorage).map(([key, value]) => {
+//    const user = JSON.parse(value);
+//    console.log('cokolwiek');
+// })}
  
 
 render() {
