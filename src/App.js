@@ -16,6 +16,7 @@ import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import RegisterModerator from "./components/registerModerator.component";
 import AddTreatment from "./components/addTreatment.component";
+import AddAppointment from "./components/addAppointment.component";
 
 // import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
@@ -81,19 +82,19 @@ class App extends Component {
             </li>
             <li className="nav-item">
               <Link to={"/about"} className="nav-link">
-                About
+                O nas
               </Link>
             </li>
             <li className="nav-item">
               <Link to={"/offer"} className="nav-link">
-                Offer
+                Oferta
               </Link>
             </li>
 
             {showModeratorBoard && (
               <li className="nav-item">
                 <Link to={"/mod"} className="nav-link">
-                  Moderator Board
+                  Panel moderatora
                 </Link>
               </li>
             )}
@@ -101,7 +102,7 @@ class App extends Component {
             {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/admin"} className="nav-link">
-                  Admin Board
+                  Panel administratora
                 </Link>
               </li>
             )}
@@ -132,13 +133,13 @@ class App extends Component {
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
-                  Login
+                  Zaloguj
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
-                  Sign Up
+                  Zarejestruj
                 </Link>
               </li>
             </div>
@@ -158,6 +159,7 @@ class App extends Component {
             <Route path="/admin" component={BoardAdmin} />
             <Route path="/registerModerator" component={RegisterModerator} />
             <Route path="/addtreatment" component={AddTreatment} />
+            <Route path="/addAppointment" component={AddAppointment} />
 
           </Switch>
         </div>
